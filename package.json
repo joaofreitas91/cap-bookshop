@@ -17,9 +17,6 @@
       "requires": {
         "auth": {
           "kind": "dummy"
-        },
-        "db": {
-          "kind": "sqlite"
         }
       }
     }
