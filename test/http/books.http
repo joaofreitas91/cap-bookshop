@@ -1,0 +1,40 @@
+@server=http://localhost:4004
+
+
+### Books
+# @name Books_GET
+GET {{server}}/odata/v4/bookshop-catalog/Books
+
+
+
+### Books
+# @name Books_POST
+POST {{server}}/odata/v4/bookshop-catalog/Books
+Content-Type: application/json
+
+{
+  "ID": "19550310-d892-44ac-9053-1518bb0a5b5c",
+  "title": "Harry Potter and the Philosopher's Stone",
+  "subtitle": "The beginning of the magical journey",
+  "price": 39.9,
+  "publicationDate": "1997-06-26",
+  "stock": 120,
+  "rating": 95,
+  "available": true
+}
+
+
+### Books
+# @name Books_PATCH
+PATCH {{server}}/odata/v4/bookshop-catalog/Books/19550310-d892-44ac-9053-1518bb0a5b5c
+Content-Type: application/json
+
+{
+    "subtitle": "The beginning of the magical journey at Hogwarts"
+}
+
+
+### Books
+# @name Books_DELETE
+DELETE {{server}}/odata/v4/bookshop-catalog/Books/19550310-d892-44ac-9053-1518bb0a5b5c
+Content-Type: application/json
