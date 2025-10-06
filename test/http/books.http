@@ -25,6 +25,23 @@ Content-Type: application/json
 
 
 ### Books
+# @name Books_POST
+POST {{server}}/odata/v4/bookshop-catalog/Books
+Content-Type: application/json
+
+{
+  "ID": "3e9a4b5f-2c71-4f2e-8d92-91b8a47a9c3d",
+  "title": "The Lord of the Rings: The Fellowship of the Ring",
+  "subtitle": "The beginning of the epic quest to destroy the One Ring",
+  "price": 49.9,
+  "publicationDate": "1954-07-29",
+  "stock": 85,
+  "rating": 98,
+  "available": true
+}
+
+
+### Books
 # @name Books_PATCH
 PATCH {{server}}/odata/v4/bookshop-catalog/Books/19550310-d892-44ac-9053-1518bb0a5b5c
 Content-Type: application/json

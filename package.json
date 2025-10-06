@@ -17,6 +17,12 @@
       "requires": {
         "auth": {
           "kind": "dummy"
+        },
+        "db": {
+          "kind": "sqlite",
+          "credentials" : {
+            "url": "test/db/db.sqlite"
+          }
         }
       }
     }
