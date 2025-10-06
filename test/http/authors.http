@@ -1,0 +1,36 @@
+@server=http://localhost:4004
+
+
+### Authors
+# @name Authors_GET
+GET {{server}}/odata/v4/bookshop-catalog/Authors
+
+
+
+### Authors
+# @name Authors_POST
+POST {{server}}/odata/v4/bookshop-catalog/Authors
+Content-Type: application/json
+
+{
+  "ID": "17448683-bb02-4b93-9892-6822d2c3a839",
+  "firstName": "J.K.",
+  "lastName": "Rowling"
+}
+
+### Authors
+# @name Authors_POST
+POST {{server}}/odata/v4/bookshop-catalog/Authors
+Content-Type: application/json
+
+{
+  "ID": "a7d3e29f-5f48-47cb-9a2c-cc7e1b6d9e32",
+  "firstName": "J.R.R.",
+  "lastName": "Tolkien"
+}
+
+
+### Authors
+# @name Authors_DELETE
+DELETE {{server}}/odata/v4/bookshop-catalog/Authors/17448683-bb02-4b93-9892-6822d2c3a839
+Content-Type: application/json

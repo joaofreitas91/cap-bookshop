@@ -1,0 +1,54 @@
+@server=http://localhost:4004
+
+
+### BookCategories
+# @name BookCategories_GET
+GET {{server}}/odata/v4/bookshop-catalog/BookCategories
+
+
+### BookCategories - Harry Potter x Adventure
+# @name BookCategories_POST
+POST {{server}}/odata/v4/bookshop-catalog/BookCategories
+Content-Type: application/json
+
+{
+  "ID": "cebccaa1-580b-412b-9af8-d60a654441f3",
+  "book_ID": "19550310-d892-44ac-9053-1518bb0a5b5c",
+  "category_ID": "10975969-3507-44eb-935f-ad88989fe7e7"
+}
+
+
+### BookCategories - Harry Potter x Fantasy
+# @name BookCategories_POST
+POST {{server}}/odata/v4/bookshop-catalog/BookCategories
+Content-Type: application/json
+
+{
+  "ID": "695556bc-0021-4d16-9990-7806cf816e38",
+  "book_ID": "19550310-d892-44ac-9053-1518bb0a5b5c",
+  "category_ID": "10975969-3507-44eb-935f-ad88989fe7e8"
+}
+
+
+### BookCategories - Lord of Rings x Fantasy
+# @name BookCategories_POST
+POST {{server}}/odata/v4/bookshop-catalog/BookCategories
+Content-Type: application/json
+
+{
+  "ID": "07f46666-b2ce-4c76-a0b2-398e6f06fac1",
+  "book_ID": "3e9a4b5f-2c71-4f2e-8d92-91b8a47a9c3d",
+  "category_ID": "10975969-3507-44eb-935f-ad88989fe7e8"
+}
+
+
+### BookCategories
+# @name BookCategories_DELETE
+DELETE {{server}}/odata/v4/bookshop-catalog/BookCategories/695556bc-0021-4d16-9990-7806cf816e38
+Content-Type: application/json
+
+
+### BookCategories
+# @name BookCategories_DELETE
+DELETE {{server}}/odata/v4/bookshop-catalog/BookCategories(ID=695556bc-0021-4d16-9990-7806cf816e38,book_ID=19550310-d892-44ac-9053-1518bb0a5b5c,category_ID=10975969-3507-44eb-935f-ad88989fe7e8)
+Content-Type: application/json

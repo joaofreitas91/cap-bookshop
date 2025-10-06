@@ -1,0 +1,35 @@
+@server=http://localhost:4004
+
+
+### Categories
+# @name Categories_GET
+GET {{server}}/odata/v4/bookshop-catalog/Categories
+
+
+
+### Categories
+# @name Categories_POST
+POST {{server}}/odata/v4/bookshop-catalog/Categories
+Content-Type: application/json
+
+{
+  "ID": "10975969-3507-44eb-935f-ad88989fe7e8",
+  "name": "Fantasy"
+}
+
+
+### Categories
+# @name Categories_POST
+POST {{server}}/odata/v4/bookshop-catalog/Categories
+Content-Type: application/json
+
+{
+  "ID": "10975969-3507-44eb-935f-ad88989fe7e7",
+  "name": "Adventure"
+}
+
+
+### Categories
+# @name Categories_DELETE
+DELETE {{server}}/odata/v4/bookshop-catalog/Categories/10975969-3507-44eb-935f-ad88989fe7e8
+Content-Type: application/json

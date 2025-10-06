@@ -3,8 +3,7 @@
 
 ### Books
 # @name Books_GET
-GET {{server}}/odata/v4/bookshop-catalog/Books
-
+GET {{server}}/odata/v4/bookshop-catalog/Books?$expand=author,navCategories($expand=category)
 
 
 ### Books
@@ -20,7 +19,10 @@ Content-Type: application/json
   "publicationDate": "1997-06-26",
   "stock": 120,
   "rating": 95,
-  "available": true
+  "available": true,
+  "author": {
+    "ID": "17448683-bb02-4b93-9892-6822d2c3a839"
+  }
 }
 
 
@@ -37,7 +39,8 @@ Content-Type: application/json
   "publicationDate": "1954-07-29",
   "stock": 85,
   "rating": 98,
-  "available": true
+  "available": true,
+  "author_ID": "a7d3e29f-5f48-47cb-9a2c-cc7e1b6d9e32"
 }
 
 
