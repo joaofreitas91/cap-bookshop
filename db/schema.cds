@@ -46,3 +46,39 @@ entity BookCategories {
     key book     : Association to Books;
     key category : Association to Categories;
 }
+
+//aqui abaixo estão as novas entidades
+entity Customers {
+    key ID        : UUID;
+        firstName : String(255);
+        lastName  : String(255);
+        cpf       : String(11);
+        phone     : String(11);
+        address   : String(255);
+        city      : String(255);
+        state     : String(255);
+        cep       : String(8);
+
+        orders    : Association to many Orders
+                        on orders.customer = $self
+}
+
+entity Orders {
+    key ID         : UUID;
+        OrderDate  : DateTime;
+        totalValue : Integer;
+        status     : String(20); /* “PENDING”, “PAID”, “CANCELLED” */
+
+        customer   : Association to one Customers;
+
+        orderItems  : Composition of many OrderItems
+                         on orderItems.order = $self
+
+}
+
+entity OrderItems {
+    key ID        : UUID;
+        quantity  : Integer;
+        order     : Association to one Orders;
+        book      : Association to one Books;
+}

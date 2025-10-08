@@ -1,0 +1,6 @@
+@server=http://localhost:4004
+
+
+### OrderItems
+# @name OrderItems_GET
+GET {{server}}/odata/v4/bookshop-catalog/OrderItems
