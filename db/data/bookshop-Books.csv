@@ -1,7 +1,7 @@
 ID,title,subtitle,price,publicationDate,stock,rating,available
-2e9fdb64-62ac-4a7f-b75b-4a9e889a5d2e,Harry Potter and the Chamber of Secrets,The second year at Hogwarts filled with mystery,42.5,1998-07-02,85,92,true
-1288225f-7bb4-4fb0-a9fe-7dcf47aa5bb5,title-1288225,subtitle-1288225,27,2013-05-23,3,89,false
-12882262-f08a-4f51-8a15-c216ebdea886,title-1288226,subtitle-1288226,65,2003-08-24,0,85,true
-12882270-3bbe-46ed-93f6-5930ff248b0e,title-1288227,subtitle-1288227,97,2005-09-26,73,83,false
-12882285-b1a8-4c6a-9345-ae4986ec805a,title-1288228,subtitle-1288228,73,2012-12-28,22,92,true
-1288229c-4fbb-457b-bf23-df6b534da170,title-1288229,subtitle-1288229,93,2016-02-26,44,2,false
+2e9fdb64-62ac-4a7f-b75b-4a9e889a5d2e,Harry Potter and the Chamber of Secrets,The second year at Hogwarts filled with mystery,4250,1998-07-02,85,92,true
+1288225f-7bb4-4fb0-a9fe-7dcf47aa5bb5,title-1288225,subtitle-1288225,2700,2013-05-23,3,89,false
+12882262-f08a-4f51-8a15-c216ebdea886,title-1288226,subtitle-1288226,6500,2003-08-24,0,85,true
+12882270-3bbe-46ed-93f6-5930ff248b0e,title-1288227,subtitle-1288227,9700,2005-09-26,73,83,false
+12882285-b1a8-4c6a-9345-ae4986ec805a,title-1288228,subtitle-1288228,7300,2012-12-28,22,92,true
+1288229c-4fbb-457b-bf23-df6b534da170,title-1288229,subtitle-1288229,9300,2016-02-26,44,2,false
