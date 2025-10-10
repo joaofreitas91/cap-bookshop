@@ -64,15 +64,15 @@ entity Customers {
 }
 
 entity Orders {
-    key ID         : UUID;
-        OrderDate  : DateTime;
-        totalValue : Integer;
-        status     : String(20); /* “PENDING”, “PAID”, “CANCELLED” */
+    key     ID         : UUID;
+            OrderDate  : DateTime;
+    virtual totalValue : Integer;
+            status     : String(20); /* “PENDING”, “PAID”, “CANCELLED” */
 
-        customer   : Association to one Customers;
+            customer   : Association to one Customers;
 
-        orderItems  : Composition of many OrderItems
-                         on orderItems.order = $self
+            orderItems : Composition of many OrderItems
+                             on orderItems.order = $self
 
 }
 

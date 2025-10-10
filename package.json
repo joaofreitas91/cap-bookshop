@@ -2,6 +2,7 @@
   "name": "bookshop",
   "version": "1.0.0",
   "description": "A simple CAP project.",
+  "type": "module",
   "dependencies": {
     "@sap/cds": "^9",
     "express": "^4"
