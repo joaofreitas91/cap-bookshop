@@ -9,4 +9,7 @@ service BookshopCatalog {
     entity Customers      as projection on bookshop.Customers;
     entity Orders         as projection on bookshop.Orders;
     entity OrderItems     as projection on bookshop.OrderItems;
+
+    function totalAvailableBooks() returns Integer;
+    action applyDiscount(bookID: UUID, percent: Integer) returns Books;
 }

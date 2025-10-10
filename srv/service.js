@@ -43,6 +43,36 @@ class BookshopService extends cds.ApplicationService {
             }
         })
 
+        this.on('totalAvailableBooks', async () => {
+            const availableBooks = await SELECT.from("Books").where({ available: true })
+            return availableBooks.length;
+        });
+
+        this.on('applyDiscount', async (req) => {
+            const { bookID, percent } = req.data;
+
+            if (!bookID || !percent) {
+                return req.error(400, 'É necessário informar o ID do livro e o percentual de desconto.');
+            }
+
+            const book = await SELECT.one.from("Books").where({ ID: bookID })
+
+            if (!book) return req.error(404, 'Livro não encontrado.');
+
+            const newPrice = Math.floor(
+                Math.max(0, book.price - (book.price * percent) / 100)
+            );
+
+            await UPDATE('Books')
+                .set({ price: newPrice })
+                .where({ ID: bookID });
+
+            const updatedBook = await SELECT.one.from('Books').where({ ID: bookID });
+
+            return updatedBook;
+
+        });
+
         super.init()
     }
 }

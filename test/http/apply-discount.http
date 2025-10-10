@@ -1,0 +1,17 @@
+@server=http://localhost:4004
+
+
+### applyDiscount
+# @name applyDiscount_GET
+GET {{server}}/odata/v4/bookshop-catalog/Books/19550310-d892-44ac-9053-1518bb0a5b5c
+
+
+### applyDiscount
+# @name applyDiscount_GET
+POST {{server}}/odata/v4/bookshop-catalog/applyDiscount
+Content-Type: application/json
+
+{
+  "bookID": "19550310-d892-44ac-9053-1518bb0a5b5c",
+  "percent": 10
+}
