@@ -3,7 +3,7 @@
 
 ### Orders
 # @name Orders_GET
-GET {{server}}/odata/v4/bookshop-catalog/Orders?$expand=orderItem($expand=book)
+GET {{server}}/odata/v4/bookshop-catalog/Orders
 
 
 
@@ -14,8 +14,9 @@ Content-Type: application/json
 
 {
   "ID": "21381376-a47c-4529-bbb4-dcce20f0c68d",
+  "customer_ID": "20449002-5143-415c-9eea-eee19b4ce703",
+  "status": "PAID",
   "OrderDate": "2005-09-14T00:00:00.000Z",
-  "status": "status-21381376",
   "orderItems": [
     {
       "ID": "27838192-4bfb-48c3-a488-e4c7123f81ef",
