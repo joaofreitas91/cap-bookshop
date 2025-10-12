@@ -31,17 +31,14 @@ POST {{server}}/odata/v4/bookshop-catalog/Books
 Content-Type: application/json
 
 {
-  "ID": "9e874dc3-1437-4d4d-8f12-ecb219bf5c7f",
   "title": "The Lion, the Witch and the Wardrobe",
   "subtitle": "A timeless adventure in the magical land of Narnia",
-  "price": -3590,
+  "price": 3590,
   "publicationDate": "1950-10-16",
   "stock": 10,
   "rating": 5,
   "available": true,
-  "author": {
-    "ID": "51f1a9f2-33f9-4a2f-995a-4f2de4dbb4ad"
-  }
+  "author_ID": "51f1a9f2-33f9-4a2f-995a-4f2de4dbb4ad"
 }
 
 
