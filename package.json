@@ -5,6 +5,7 @@
   "type": "module",
   "dependencies": {
     "@sap/cds": "^9",
+    "@sap/cds-common-content": "^3.0.1",
     "express": "^4"
   },
   "devDependencies": {
@@ -21,7 +22,7 @@
         },
         "db": {
           "kind": "sqlite",
-          "credentials" : {
+          "credentials": {
             "url": "test/db/db.sqlite"
           }
         }

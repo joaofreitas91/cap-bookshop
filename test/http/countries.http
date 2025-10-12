@@ -1,0 +1,7 @@
+@server=http://localhost:4004
+
+
+### Countries
+# @name Countries_GET
+GET {{server}}/odata/v4/bookshop-catalog/Countries
+

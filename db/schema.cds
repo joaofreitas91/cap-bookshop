@@ -1,7 +1,10 @@
 using {
     cuid,
-    managed
+    managed,
+    Country
 } from '@sap/cds/common';
+
+using from '@sap/cds-common-content';
 
 
 namespace bookshop;
@@ -58,6 +61,7 @@ entity Customers : cuid, managed {
     address   : String(255);
     city      : String(255);
     state     : String(255);
+    country   : Country;
     cep       : String(8);
 
     orders    : Association to many Orders
