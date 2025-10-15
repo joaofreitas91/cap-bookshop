@@ -13,35 +13,35 @@ class BookshopService extends cds.ApplicationService {
         })
 
 
-        this.after("READ", "Orders", async (orders) => {
-            const orderIds = orders.map(order => order.ID);
-            const orderItemsWithBooks = await SELECT.from(
-                OrderItems,
-                orderItem => {
-                    orderItem.ID, orderItem.order_ID, orderItem.quantity,
-                        orderItem.book(book => {
-                            book.ID, book.title, book.price
-                        })
-                })
-                .where({ order_ID: { in: orderIds } })
+        // this.after("READ", "Orders", async (orders) => {
+        //     const orderIds = orders.map(order => order.ID);
+        //     const orderItemsWithBooks = await SELECT.from(
+        //         orderItems,
+        //         orderItem => {
+        //             orderItem.ID, orderItem.order_ID, orderItem.quantity,
+        //                 orderItem.book(book => {
+        //                     book.ID, book.title, book.price
+        //                 })
+        //         })
+        //         .where({ order_ID: { in: orderIds } })
 
 
-            const groupedItems = orderItemsWithBooks.reduce((acc, item) => {
-                (acc[item.order_ID] ??= []).push(item);
-                return acc;
-            }, {});
+        //     const groupedItems = orderItemsWithBooks.reduce((acc, item) => {
+        //         (acc[item.order_ID] ??= []).push(item);
+        //         return acc;
+        //     }, {});
 
 
 
-            for (const order of orders) {
-                const selectedItem = groupedItems[order.ID] ?? [];
-                const sumBooks = selectedItem.reduce((sum, orderItem) => {
-                    return sum + (orderItem.book?.price ?? 0) * (orderItem.quantity ?? 1)
-                }, 0);
+        //     for (const order of orders) {
+        //         const selectedItem = groupedItems[order.ID] ?? [];
+        //         const sumBooks = selectedItem.reduce((sum, orderItem) => {
+        //             return sum + (orderItem.book?.price ?? 0) * (orderItem.quantity ?? 1)
+        //         }, 0);
 
-                order.totalValue = sumBooks;
-            }
-        })
+        //         order.totalValue = sumBooks;
+        //     }
+        // })
 
         this.on('totalAvailableBooks', async () => {
             const availableBooks = await SELECT.from("Books").where({ available: true })

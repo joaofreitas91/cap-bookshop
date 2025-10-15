@@ -12,7 +12,6 @@ POST {{server}}/odata/v4/bookshop-catalog/Books
 Content-Type: application/json
 
 {
-  "ID": "19550310-d892-44ac-9053-1518bb0a5b5c",
   "title": "Harry Potter and the Philosopher's Stone",
   "subtitle": "The beginning of the magical journey",
   "price": 3990,
@@ -21,7 +20,7 @@ Content-Type: application/json
   "rating": 95,
   "available": true,
   "author": {
-    "ID": "17448683-bb02-4b93-9892-6822d2c3a839"
+    "ID": "e0936385-ba82-4e37-a313-0b7b4eec20a7"
   }
 }
 

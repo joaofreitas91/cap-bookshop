@@ -8,7 +8,7 @@ GET {{server}}/odata/v4/bookshop-catalog/Customers
 
 ### Customer with Country
 # @name Customers_GET
-GET {{server}}/odata/v4/bookshop-catalog/Customers?$expand=country
+GET {{server}}/odata/v4/bookshop-catalog/Customers?$expand=orders
 
 
 ### Customers
@@ -17,7 +17,6 @@ POST {{server}}/odata/v4/bookshop-catalog/Customers
 Content-Type: application/json
 
 {
-  "ID": "20449002-5143-415c-9eea-eee19b4ce703",
   "firstName": "John",
   "lastName": "Lennon",
   "cpf": "11111111120",

@@ -13,19 +13,13 @@ POST {{server}}/odata/v4/bookshop-catalog/Orders
 Content-Type: application/json
 
 {
-  "ID": "21381376-a47c-4529-bbb4-dcce20f0c68d",
-  "customer_ID": "20449002-5143-415c-9eea-eee19b4ce703",
+  "customer_ID": "9e836a25-a263-40e2-b2f8-ea63ca96df91",
   "status": "PAID",
   "OrderDate": "2005-09-14T00:00:00.000Z",
   "orderItems": [
     {
-      "ID": "27838192-4bfb-48c3-a488-e4c7123f81ef",
-      "book_ID": "19550310-d892-44ac-9053-1518bb0a5b5c",
-      "quantity": 1
-    },
-    {
       "ID": "27838193-3128-41aa-9343-730625e9ad4b",
-      "book_ID": "3e9a4b5f-2c71-4f2e-8d92-91b8a47a9c3d",
+      "book_ID": "1288225f-7bb4-4fb0-a9fe-7dcf47aa5bb5",
       "quantity": 2
     }
   ]
