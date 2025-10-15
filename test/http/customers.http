@@ -17,11 +17,11 @@ POST {{server}}/odata/v4/bookshop-catalog/Customers
 Content-Type: application/json
 
 {
-  "firstName": "John",
-  "lastName": "Lennon",
+  "firstName": "Teste",
+  "lastName": "Alfa",
   "cpf": "11111111120",
   "phone": "11999887777",
-  "address": "Rua ABC",
+  "address": "Rua DEF",
   "city": "São Paulo",
   "state": "SP",
   "cep": "10300400"
