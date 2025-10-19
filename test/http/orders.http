@@ -1,15 +1,17 @@
 @server=http://localhost:4004
-
+@username=bob
+@password=1234
 
 ### Orders
 # @name Orders_GET
 GET {{server}}/odata/v4/bookshop-catalog/Orders
-
+Authorization: Basic {{username}}:{{password}}
 
 
 ### Orders
 # @name Orders_POST
 POST {{server}}/odata/v4/bookshop-catalog/Orders
+Authorization: Basic {{username}}:{{password}}
 Content-Type: application/json
 
 {
@@ -19,14 +21,27 @@ Content-Type: application/json
   "OrderDate": "2005-09-14T00:00:00.000Z",
   "orderItems": [
     {
-      "ID": "27838192-4bfb-48c3-a488-e4c7123f81ef",
       "book_ID": "19550310-d892-44ac-9053-1518bb0a5b5c",
       "quantity": 1
-    },
+    }
+  ]
+}
+
+### Orders
+# @name Orders_POST
+POST {{server}}/odata/v4/bookshop-catalog/Orders
+Authorization: Basic john:1234
+Content-Type: application/json
+
+{
+  "ID": "aeff1fb8-2e21-430f-acdc-c80383febcec",
+  "customer_ID": "20449002-5143-415c-9eea-eee19b4ce703",
+  "status": "PAID",
+  "OrderDate": "2005-09-14T00:00:00.000Z",
+  "orderItems": [
     {
-      "ID": "27838193-3128-41aa-9343-730625e9ad4b",
-      "book_ID": "3e9a4b5f-2c71-4f2e-8d92-91b8a47a9c3d",
-      "quantity": 2
+      "book_ID": "19550310-d892-44ac-9053-1518bb0a5b5c",
+      "quantity": 1
     }
   ]
 }
@@ -35,4 +50,6 @@ Content-Type: application/json
 ### Orders
 # @name Orders_DELETE
 DELETE {{server}}/odata/v4/bookshop-catalog/Orders/21381376-a47c-4529-bbb4-dcce20f0c68d
+Authorization: Basic {{username}}:{{password}}
 Content-Type: application/json
+

@@ -88,6 +88,17 @@ entity Customers : cuid, managed {
                             @assert.target;
 }
 
+@(restrict: [
+    {
+        grant: ['READ'],
+        to   : 'seller',
+        where: 'createdBy = $user'
+    },
+    {
+        grant: ['*'],
+        to   : ['manager', 'system-user']
+    }
+])
 entity Orders : cuid, managed {
             OrderDate  : DateTime;
     virtual totalValue : Integer;
@@ -104,7 +115,7 @@ entity Orders : cuid, managed {
 }
 
 entity OrderItems : cuid, managed {
-    quantity : Integer                   @mandatory;
-    order    : Association to one Orders ;
-    book     : Association to one Books  @assert.target;
+    quantity : Integer                  @mandatory;
+    order    : Association to one Orders;
+    book     : Association to one Books @assert.target;
 }

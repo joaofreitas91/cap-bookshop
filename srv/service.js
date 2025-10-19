@@ -25,6 +25,8 @@ class BookshopService extends cds.ApplicationService {
                 })
                 .where({ order_ID: { in: orderIds } })
 
+            if (!orderItemsWithBooks.length) return
+
 
             const groupedItems = orderItemsWithBooks.reduce((acc, item) => {
                 (acc[item.order_ID] ??= []).push(item);

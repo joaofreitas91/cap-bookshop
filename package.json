@@ -7,7 +7,8 @@
     "@cap-js/hana": "^2",
     "@sap/cds": "^9",
     "@sap/cds-common-content": "^3.0.1",
-    "express": "^4"
+    "express": "^4",
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2",
@@ -20,7 +21,21 @@
     "[development]": {
       "requires": {
         "auth": {
-          "kind": "dummy"
+          "kind": "mocked",
+          "users": {
+            "john": {
+              "password": "1234",
+              "roles": [
+                "manager"
+              ]
+            },
+            "bob": {
+              "password": "1234",
+              "roles": [
+                "seller"
+              ]
+            }
+          }
         },
         "db": {
           "kind": "sqlite",
@@ -33,11 +48,16 @@
     "[production]": {
       "requires": {
         "auth": {
-          "kind": "mocked"
+          "kind": "xsuaa"
         },
         "db": {
           "kind": "hana"
         }
+      }
+    },
+    "requires": {
+      "[production]": {
+        "auth": "xsuaa"
       }
     }
   },
