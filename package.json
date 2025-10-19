@@ -9,7 +9,8 @@
     "express": "^4"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^2"
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9"
   },
   "scripts": {
     "start": "cds-serve"
@@ -25,6 +26,13 @@
           "credentials": {
             "url": "test/db/db.sqlite"
           }
+        }
+      }
+    },
+    "[production]": {
+      "requires": {
+        "auth": {
+          "kind": "mocked"
         }
       }
     }
