@@ -8,11 +8,15 @@
     "@sap/cds": "^9",
     "@sap/cds-common-content": "^3.0.1",
     "express": "^4",
-    "@sap/xssec": "^4"
+    "@sap/xssec": "^4",
+    "@sap-cloud-sdk/connectivity": "^3",
+    "@sap-cloud-sdk/http-client": "^3",
+    "@sap-cloud-sdk/resilience": "^3"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2",
-    "@sap/cds-dk": "^9"
+    "@sap/cds-dk": "^9",
+    "@sap/dev-cap-tools": "^1.31.0"
   },
   "scripts": {
     "start": "cds-serve"
@@ -37,6 +41,12 @@
             }
           }
         },
+        "BusinessPartner": {
+          "kind": "odata-v2",
+          "model": "srv/external/BusinessPartner",
+          "csrf": true,
+          "csrfInBatch": true
+        },
         "db": {
           "kind": "sqlite",
           "credentials": {
@@ -50,15 +60,22 @@
         "auth": {
           "kind": "xsuaa"
         },
+        "BusinessPartner": {
+          "kind": "odata-v2",
+          "model": "srv/external/BusinessPartner",
+          "credentials": {
+            "path": "s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER"
+          },
+          "csrf": true,
+          "csrfInBatch": true
+        },
         "db": {
           "kind": "hana"
         }
       }
     },
     "requires": {
-      "[production]": {
-        "auth": "xsuaa"
-      }
+      "connectivity": true
     }
   },
   "private": true

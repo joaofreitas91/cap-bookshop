@@ -2,6 +2,8 @@ import cds from '@sap/cds'
 
 class BookshopService extends cds.ApplicationService {
     async init() {
+        const bupa = await cds.connect.to('BusinessPartner')
+
         this.before('CREATE', "Books", (req) => {
             if (req.data.price < 0) {
                 req.error(400, 'O preço do livro não pode ser negativo.');
@@ -10,6 +12,18 @@ class BookshopService extends cds.ApplicationService {
 
         this.after("each", "Books", async (book) => {
             book.title = book.title?.toUpperCase()
+        })
+
+        this.on("READ", "A_BusinessPartner", async (req) => {
+            console.log("passou por aqui")
+            try {
+                const data = await bupa.run(req.query)
+                console.log(data);
+                return data
+            } catch (error) {
+                console.log("miranha", error)
+            }
+
         })
 
 
@@ -43,6 +57,12 @@ class BookshopService extends cds.ApplicationService {
 
                 order.totalValue = sumBooks;
             }
+        })
+
+        this.on("READ", "A_Customer", async (orders) => {
+            console.log('oi')
+
+            return []
         })
 
         this.on('totalAvailableBooks', async () => {

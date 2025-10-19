@@ -1,3 +1,4 @@
+// using { BusinessPartnerA2X } from '../srv/external/BusinessPartnerA2X.cds'; 
 using {
     cuid,
     managed,
