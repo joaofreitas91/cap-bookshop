@@ -18,11 +18,8 @@ Content-Type: application/json
   "price": 3990,
   "publicationDate": "1997-06-26",
   "stock": 120,
-  "rating": 95,
-  "available": true,
-  "author": {
-    "ID": "17448683-bb02-4b93-9892-6822d2c3a839"
-  }
+  "rating": 5,
+  "available": true
 }
 
 ### Books
