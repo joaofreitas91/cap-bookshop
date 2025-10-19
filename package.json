@@ -4,6 +4,7 @@
   "description": "A simple CAP project.",
   "type": "module",
   "dependencies": {
+    "@cap-js/hana": "^2",
     "@sap/cds": "^9",
     "@sap/cds-common-content": "^3.0.1",
     "express": "^4"
@@ -33,6 +34,9 @@
       "requires": {
         "auth": {
           "kind": "mocked"
+        },
+        "db": {
+          "kind": "hana"
         }
       }
     }
