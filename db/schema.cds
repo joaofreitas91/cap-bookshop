@@ -90,7 +90,7 @@ entity Customers : cuid, managed {
 
 @(restrict: [
     {
-        grant: ['READ'],
+        grant: ['READ', 'CREATE','UPDATE'],
         to   : 'seller',
         where: 'createdBy = $user'
     },
