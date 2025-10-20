@@ -44,6 +44,12 @@
         "BusinessPartner": {
           "kind": "odata-v2",
           "model": "srv/external/BusinessPartner",
+          "credentials": {
+            "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER",
+            "headers": {
+              "APIKey": "SDNpQ7QNVcaNqQ9yup5NTluvCA9YWeL7"
+            }
+          },
           "csrf": true,
           "csrfInBatch": true
         },
@@ -64,7 +70,7 @@
           "kind": "odata-v2",
           "model": "srv/external/BusinessPartner",
           "credentials": {
-            "path": "s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER"
+            "path": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER"
           },
           "csrf": true,
           "csrfInBatch": true
@@ -75,7 +81,11 @@
       }
     },
     "requires": {
-      "connectivity": true
+      "connectivity": true,
+      "businesspartner": {
+        "kind": "odata-v2",
+        "model": "srv/external/businesspartner"
+      }
     }
   },
   "private": true

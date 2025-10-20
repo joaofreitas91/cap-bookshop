@@ -14,11 +14,14 @@ class BookshopService extends cds.ApplicationService {
             book.title = book.title?.toUpperCase()
         })
 
-        this.on("READ", "A_BusinessPartner", async (req) => {
+        this.on("READ", "BusinessPartner", async (req) => {
             console.log("passou por aqui")
             try {
                 const data = await bupa.run(req.query)
-                console.log(data);
+
+                const data2 = await bupa.run(SELECT.one.from("A_BusinessPartner"))
+
+                console.log(data2);
                 return data
             } catch (error) {
                 console.log("miranha", error)

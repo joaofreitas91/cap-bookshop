@@ -1,4 +1,4 @@
-using {BusinessPartner} from './external/BusinessPartner.cds';
+using {BusinessPartner as bp} from './external/BusinessPartner.cds';
 using {bookshop} from '../db/schema';
 
 // @requires: 'authenticated-user'
@@ -8,7 +8,7 @@ service BookshopCatalog {
     entity Categories        as projection on bookshop.Categories;
     entity BookCategories    as projection on bookshop.BookCategories;
     entity Customers         as projection on bookshop.Customers;
-    entity A_BusinessPartner as projection on BusinessPartner.A_BusinessPartner;
+    entity BusinessPartner as projection on bp.A_BusinessPartner;
 
     @requires: 'authenticated-user'
     entity Orders            as projection on bookshop.Orders;
