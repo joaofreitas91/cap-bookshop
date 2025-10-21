@@ -12,10 +12,12 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2",
-    "@sap/cds-dk": "^9"
+    "@sap/cds-dk": "^9",
+    "cds-plugin-ui5": "^0.13.0"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-bookshop-order-control": "cds watch --open bookshopordercontrol/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "cds": {
     "[development]": {
@@ -61,5 +63,11 @@
       }
     }
   },
-  "private": true
+  "private": true,
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/bookshop-order-control"
+  ]
 }
