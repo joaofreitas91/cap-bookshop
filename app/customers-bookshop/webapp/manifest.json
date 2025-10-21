@@ -43,7 +43,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.141.1",
       "libs": {
@@ -107,7 +107,7 @@
           "options": {
             "settings": {
               "contextPath": "/Customers",
-              "variantManagement": "Page",
+              "variantManagement": "None",
               "navigation": {
                 "Customers": {
                   "detail": {
@@ -118,10 +118,29 @@
               "controlConfiguration": {
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
-                    "type": "ResponsiveTable"
+                    "type": "ResponsiveTable",
+                    "disableCopyToClipboard": true,
+                    "selectionMode": "Single",
+                    "widthIncludingColumnHeader": false,
+                    "personalization": {
+                      "column": false,
+                      "sort": false,
+                      "filter": false
+                    },
+                    "condensedTableLayout": false
+                  },
+                  "actions": {
+                    "ListReportCustomers": {
+                      "press": "com.alfa.customersbookshop.ext.controller.ListReportCustomers.showCustomerDetails",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": true,
+                      "text": "Exibir dados do cliente"
+                    }
                   }
                 }
-              }
+              },
+              "initialLoad": "Enabled"
             }
           }
         },
@@ -137,6 +156,39 @@
                 "orders": {
                   "detail": {
                     "route": "OrdersObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "orders/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "disableCopyToClipboard": false,
+                    "enableExport": false,
+                    "enableFullScreen": false,
+                    "enablePaste": false,
+                    "selectionMode": "None",
+                    "type": "ResponsiveTable",
+                    "creationMode": {
+                      "creationFields": ""
+                    },
+                    "personalization": {
+                      "filter": false,
+                      "column": false,
+                      "sort": false
+                    },
+                    "quickVariantSelection": {
+                      "hideTableTitle": false,
+                      "showCounts": false
+                    },
+                    "widthIncludingColumnHeader": false
+                  },
+                  "columns": {
+                    "DataField::ID": {
+                      "width": "auto"
+                    },
+                    "DataField::OrderDate": {
+                      "width": "auto"
+                    }
                   }
                 }
               }
@@ -155,10 +207,20 @@
           }
         }
       }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {}
+      }
     }
   },
   "sap.fiori": {
     "registrationIds": [],
     "archeType": "transactional"
+  },
+  "sap.fe": {
+    "macros": {
+      "table": {}
+    }
   }
 }
