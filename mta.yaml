@@ -50,3 +50,12 @@ resources:
       config:
         xsappname: bookshop-${org}-${space}
         tenant-mode: dedicated
+        role-collections:
+          - name: 'seller (bookshop ${org}-${space})'
+            description: 'generated'
+            role-template-references:
+              - '$XSAPPNAME.seller'
+          - name: 'manager (bookshop ${org}-${space})'
+            description: 'generated'
+            role-template-references:
+              - '$XSAPPNAME.manager'

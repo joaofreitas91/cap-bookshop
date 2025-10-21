@@ -21,7 +21,7 @@ Content-Type: application/json
   "OrderDate": "2005-09-14T00:00:00.000Z",
   "orderItems": [
     {
-      "book_ID": "19550310-d892-44ac-9053-1518bb0a5b5c",
+      "book_ID": "2e9fdb64-62ac-4a7f-b75b-4a9e889a5d2e",
       "quantity": 1
     }
   ]
@@ -40,7 +40,7 @@ Content-Type: application/json
   "OrderDate": "2005-09-14T00:00:00.000Z",
   "orderItems": [
     {
-      "book_ID": "19550310-d892-44ac-9053-1518bb0a5b5c",
+      "book_ID": "2e9fdb64-62ac-4a7f-b75b-4a9e889a5d2e",
       "quantity": 1
     }
   ]
