@@ -1,6 +1,7 @@
 @server=http://localhost:4004
 
 
+
 ### Authors
 # @name Authors_GET
 GET {{server}}/odata/v4/bookshop-catalog/Authors

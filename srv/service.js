@@ -16,7 +16,7 @@ class BookshopService extends cds.ApplicationService {
         this.after("READ", "Orders", async (orders) => {
             const orderIds = orders.map(order => order.ID);
             const orderItemsWithBooks = await SELECT.from(
-                OrderItems,
+                "OrderItems",
                 orderItem => {
                     orderItem.ID, orderItem.order_ID, orderItem.quantity,
                         orderItem.book(book => {
@@ -24,6 +24,8 @@ class BookshopService extends cds.ApplicationService {
                         })
                 })
                 .where({ order_ID: { in: orderIds } })
+
+            if (!orderItemsWithBooks.length) return
 
 
             const groupedItems = orderItemsWithBooks.reduce((acc, item) => {

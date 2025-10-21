@@ -14,7 +14,7 @@ entity Books : cuid, managed {
     subtitle        : String(255);
     price           : Integer;
     publicationDate : Date;
-    stock           : Integer                    @default: 1  @assert.range: [
+    stock           : Integer default 1          @assert.range: [
         1,
         _
     ];
@@ -22,7 +22,7 @@ entity Books : cuid, managed {
         1,
         5
     ];
-    available       : Boolean                    @default     : true;
+    available       : Boolean default true;
 
     // Relacionamento de 1:1 onde cada livro tem apenas um autor
     author          : Association to one Authors @assert.target;
@@ -88,24 +88,34 @@ entity Customers : cuid, managed {
                             @assert.target;
 }
 
+@(restrict: [
+    {
+        grant: ['READ', 'CREATE', 'UPDATE'],
+        to: 'seller',
+        where: 'createdBy = $user'
+    },
+    {
+        grant: ['*'],
+        to: ['manager', 'system-user']
+    }
+])
 entity Orders : cuid, managed {
             OrderDate  : DateTime;
     virtual totalValue : Integer;
-            status     : String(20)                   @assert.enum: [
-                'PENDING',
-                'PAID',
-                'CANCELLED'
-            ]  @default: 'PENDING';
+            status     : String(20)                   @assert.range enum {
+                PENDING;
+                PAID;
+                CANCELLED;
+            } default 'PENDING';
 
             customer   : Association to one Customers @assert.target;
 
             orderItems : Composition of many OrderItems
-                             on orderItems.order = $self
-                                                      @assert.target;
+                             on orderItems.order = $self;
 }
 
 entity OrderItems : cuid, managed {
-    quantity : Integer                   @mandatory;
-    order    : Association to one Orders @assert.target;
-    book     : Association to one Books  @assert.target;
+    quantity : Integer                  @mandatory;
+    order    : Association to one Orders;
+    book     : Association to one Books @assert.target;
 }
