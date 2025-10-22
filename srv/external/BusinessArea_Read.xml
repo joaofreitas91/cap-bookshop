@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="API_BUSINESSAREA_SRV" xml:lang="en" sap:schema-version="1"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="A_BusinessAreaType" sap:label="Business Area" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BusinessArea"/>
+                </Key>
+                <Property Name="BusinessArea" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Business Area"/>
+                <NavigationProperty Name="to_Text" Relationship="API_BUSINESSAREA_SRV.assoc_2E5B2E32510E32A319BA9026D52CA840" FromRole="FromRole_assoc_2E5B2E32510E32A319BA9026D52CA840" ToRole="ToRole_assoc_2E5B2E32510E32A319BA9026D52CA840"/>
+            </EntityType>
+            <EntityType Name="A_BusinessAreaTextType" sap:label="Business Area Text" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BusinessArea"/>
+                    <PropertyRef Name="Language"/>
+                </Key>
+                <Property Name="BusinessArea" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Business Area"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Language Key"/>
+                <Property Name="BusinessAreaName" Type="Edm.String" MaxLength="30" sap:label="Business Area Name"/>
+                <NavigationProperty Name="to_BusinessArea" Relationship="API_BUSINESSAREA_SRV.assoc_78DA97EF6825C4D1534B90E7FA5AF798" FromRole="FromRole_assoc_78DA97EF6825C4D1534B90E7FA5AF798" ToRole="ToRole_assoc_78DA97EF6825C4D1534B90E7FA5AF798"/>
+            </EntityType>
+            <Association Name="assoc_2E5B2E32510E32A319BA9026D52CA840" sap:content-version="1">
+                <End Type="API_BUSINESSAREA_SRV.A_BusinessAreaType" Multiplicity="1" Role="FromRole_assoc_2E5B2E32510E32A319BA9026D52CA840"/>
+                <End Type="API_BUSINESSAREA_SRV.A_BusinessAreaTextType" Multiplicity="*" Role="ToRole_assoc_2E5B2E32510E32A319BA9026D52CA840"/>
+            </Association>
+            <Association Name="assoc_78DA97EF6825C4D1534B90E7FA5AF798" sap:content-version="1">
+                <End Type="API_BUSINESSAREA_SRV.A_BusinessAreaTextType" Multiplicity="1" Role="FromRole_assoc_78DA97EF6825C4D1534B90E7FA5AF798"/>
+                <End Type="API_BUSINESSAREA_SRV.A_BusinessAreaType" Multiplicity="1" Role="ToRole_assoc_78DA97EF6825C4D1534B90E7FA5AF798"/>
+            </Association>
+            <EntityContainer Name="API_BUSINESSAREA_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="A_BusinessArea" EntityType="API_BUSINESSAREA_SRV.A_BusinessAreaType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="A_BusinessAreaText" EntityType="API_BUSINESSAREA_SRV.A_BusinessAreaTextType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_78DA97EF6825C4D1534B90E7FA5AF798" Association="API_BUSINESSAREA_SRV.assoc_78DA97EF6825C4D1534B90E7FA5AF798" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="A_BusinessAreaText" Role="FromRole_assoc_78DA97EF6825C4D1534B90E7FA5AF798"/>
+                    <End EntitySet="A_BusinessArea" Role="ToRole_assoc_78DA97EF6825C4D1534B90E7FA5AF798"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_2E5B2E32510E32A319BA9026D52CA840" Association="API_BUSINESSAREA_SRV.assoc_2E5B2E32510E32A319BA9026D52CA840" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="A_BusinessArea" Role="FromRole_assoc_2E5B2E32510E32A319BA9026D52CA840"/>
+                    <End EntitySet="A_BusinessAreaText" Role="ToRole_assoc_2E5B2E32510E32A319BA9026D52CA840"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+                <Annotations Target="API_BUSINESSAREA_SRV.API_BUSINESSAREA_SRV_Entities"
+                    xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                    <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                </Annotations>
+                <Annotations Target="API_BUSINESSAREA_SRV.API_BUSINESSAREA_SRV_Entities/A_BusinessArea"
+                    xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                    <Annotation Term="Capabilities.NavigationRestrictions">
+                        <Record>
+                            <PropertyValue Property="RestrictedProperties">
+                                <Collection>
+                                    <Record>
+                                        <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_Text"/>
+                                        <PropertyValue Property="InsertRestrictions">
+                                            <Record>
+                                                <PropertyValue Property="Insertable" Bool="false"/>
+                                            </Record>
+                                        </PropertyValue>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Annotation>
+                </Annotations>
+                <Annotations Target="API_BUSINESSAREA_SRV.API_BUSINESSAREA_SRV_Entities/A_BusinessAreaText"
+                    xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                    <Annotation Term="Capabilities.NavigationRestrictions">
+                        <Record>
+                            <PropertyValue Property="RestrictedProperties">
+                                <Collection>
+                                    <Record>
+                                        <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_BusinessArea"/>
+                                        <PropertyValue Property="InsertRestrictions">
+                                            <Record>
+                                                <PropertyValue Property="Insertable" Bool="false"/>
+                                            </Record>
+                                        </PropertyValue>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Annotation>
+                </Annotations>
+                <Annotations Target="API_BUSINESSAREA_SRV.API_BUSINESSAREA_SRV_Entities"
+                    xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                    <Annotation Term="Capabilities.BatchSupported" Bool="false"/>
+                </Annotations>
+                <Annotations Target="API_BUSINESSAREA_SRV.API_BUSINESSAREA_SRV_Entities/A_BusinessArea"
+                    xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                    <Annotation Term="Capabilities.ReadRestrictions">
+                        <Record>
+                            <PropertyValue Property="Description" String="Reads the items of all business areas."/>
+                            <PropertyValue Property="LongDescription" String="Reads the business areas available in your system."/>
+                            <PropertyValue Property="ReadByKeyRestrictions">
+                                <Record>
+                                    <PropertyValue Property="Description" String="Reads a business area by key."/>
+                                    <PropertyValue Property="LongDescription" String="Reads a selected business area for the provided business area key."/>
+                                </Record>
+                            </PropertyValue>
+                        </Record>
+                    </Annotation>
+                    <Annotation Term="Capabilities.NavigationRestrictions">
+                        <Record>
+                            <PropertyValue Property="RestrictedProperties">
+                                <Collection>
+                                    <Record>
+                                        <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_Text"/>
+                                        <PropertyValue Property="ReadRestrictions">
+                                            <Record>
+                                                <PropertyValue Property="Description" String="Reads the texts of a specific business area."/>
+                                                <PropertyValue Property="LongDescription" String="Reads the texts and related fields from a specific business area."/>
+                                            </Record>
+                                        </PropertyValue>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Annotation>
+                </Annotations>
+                <Annotations Target="API_BUSINESSAREA_SRV.API_BUSINESSAREA_SRV_Entities/A_BusinessAreaText"
+                    xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                    <Annotation Term="Capabilities.ReadRestrictions">
+                        <Record>
+                            <PropertyValue Property="Description" String="Reads the texts of all business areas."/>
+                            <PropertyValue Property="LongDescription" String="Reads the texts and related fields from all business areas. The related fields include the language and long text ID."/>
+                            <PropertyValue Property="ReadByKeyRestrictions">
+                                <Record>
+                                    <PropertyValue Property="Description" String="Reads the texts of a specific business area for a specific language and long text ID."/>
+                                    <PropertyValue Property="LongDescription" String="Reads the texts and related fields of a specific business area. The related fields include the language and long text ID."/>
+                                </Record>
+                            </PropertyValue>
+                        </Record>
+                    </Annotation>
+                    <Annotation Term="Capabilities.NavigationRestrictions">
+                        <Record>
+                            <PropertyValue Property="RestrictedProperties">
+                                <Collection>
+                                    <Record>
+                                        <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_BusinessArea"/>
+                                        <PropertyValue Property="ReadRestrictions">
+                                            <Record>
+                                                <PropertyValue Property="Description" String="Reads the specific business area related to the text item."/>
+                                                <PropertyValue Property="LongDescription" String="Reads the business area and its fields which is related to the specific text for language and ID."/>
+                                            </Record>
+                                        </PropertyValue>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Annotation>
+                </Annotations>
+                <Annotations Target="API_BUSINESSAREA_SRV.API_BUSINESSAREA_SRV_Entities"
+                    xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+                    <atom:link rel="self" href="/sap/opu/odata/sap/API_BUSINESSAREA_SRV/$metadata"
+                        xmlns:atom="http://www.w3.org/2005/Atom"/>
+                        <atom:link rel="latest-version" href="/sap/opu/odata/sap/API_BUSINESSAREA_SRV/$metadata"
+                            xmlns:atom="http://www.w3.org/2005/Atom"/>
+                        </Schema>
+                    </edmx:DataServices>
+                </edmx:Edmx>

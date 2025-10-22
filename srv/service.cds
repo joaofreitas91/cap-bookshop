@@ -1,4 +1,7 @@
+using { northwind } from './external/northwind.cds'; 
+using { BusinessArea_Read } from './external/BusinessArea_Read.cds'; 
 using {bookshop} from '../db/schema';
+using {BUSINESS_PARTNER as bp} from './external/BUSINESS_PARTNER';
 
 service BookshopCatalog {
     // @requires: 'authenticated-user'
@@ -12,4 +15,7 @@ service BookshopCatalog {
 
     function totalAvailableBooks() returns Integer;
     action applyDiscount(bookID: UUID, percent: Integer) returns Books;
+
+    //Extensibility
+    entity BusinessPartner as projection on bp.A_BusinessPartner;
 }

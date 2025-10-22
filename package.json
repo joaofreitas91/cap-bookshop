@@ -8,17 +8,31 @@
     "@sap/cds": "^9",
     "@sap/cds-common-content": "^3.0.1",
     "express": "^4",
-    "@sap/xssec": "^4"
+    "@sap/xssec": "^4",
+    "@sap-cloud-sdk/connectivity": "^3",
+    "@sap-cloud-sdk/http-client": "^3",
+    "@sap-cloud-sdk/resilience": "^3"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2",
-    "@sap/cds-dk": "^9"
+    "@sap/cds-dk": "^9",
+    "@sap/dev-cap-tools": "^1.31.0"
   },
   "scripts": {
     "start": "cds-serve"
   },
   "cds": {
     "requires": {
+      "BUSINESS_PARTNER": {
+        "kind": "odata-v2",
+        "model": "srv/external/BUSINESS_PARTNER",
+        "credentials": {
+          "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER",
+          "headers": {
+            "APIKey": "WYYreV4XlZ6XokF0TTX1oIm8Rc4BGZWT"
+          }
+        }
+      },
       "[development]": {
         "auth": {
           "kind": "mocked",
@@ -51,6 +65,33 @@
         "db": {
           "kind": "hana"
         }
+      },
+      "BusinessArea_Read": {
+        "kind": "odata-v2",
+        "model": "srv/external/BusinessArea_Read",
+        "[production]": {
+          "credentials": {
+            "path": "s4hanacloud/sap/opu/odata/sap/API_BUSINESSAREA_SRV"
+          }
+        },
+        "csrf": true,
+        "csrfInBatch": true
+      },
+      "northwind": {
+        "kind": "odata-v2",
+        "model": "srv/external/northwind",
+        "[production]": {
+          "credentials": {
+            "destination": "northwind",
+            "path": "/V2/Northwind/Northwind.svc/"
+          }
+        },
+        "csrf": true,
+        "csrfInBatch": true
+      },
+      "northwind2": {
+        "kind": "odata-v2",
+        "model": "srv/external/northwind2"
       }
     }
   },

@@ -1,0 +1,3 @@
+destinations='[{"name":"northwind","url":"https://northwind.dest","proxyHost":"http://127.0.0.1","proxyPort":"8887"}]'
+cds_requires='{"BusinessArea_Read":{"impl":"@sap/cds/srv/remote-service.js","external":true,"kind":"odata-v2","model":"srv/external/BusinessArea_Read","credentials":{"url":"https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESSAREA_SRV","headers":{"ApiKey":"WYYreV4XlZ6XokF0TTX1oIm8Rc4BGZWT"}}},"auth":{"strategy":"dummy","kind":"dummy"},"messaging":{"kind":"local-messaging"},"northwind":{"impl":"@sap/cds/srv/remote-service.js","external":true,"kind":"odata-v2","model":"srv/external/northwind","credentials":{"destination":"northwind","path":"/V2/Northwind/Northwind.svc/"}}}'
+VCAP_SERVICES='{}'

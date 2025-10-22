@@ -1,3 +1,5 @@
+using { northwind } from '../srv/external/northwind.cds'; 
+using { BusinessArea_Read } from '../srv/external/BusinessArea_Read.cds'; 
 using {
     cuid,
     managed,

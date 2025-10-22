@@ -2,6 +2,8 @@ import cds from '@sap/cds'
 
 class BookshopService extends cds.ApplicationService {
     async init() {
+        const bupa = await cds.connect.to("BUSINESS_PARTNER")
+
         this.before('CREATE', "Books", (req) => {
             if (req.data.price < 0) {
                 req.error(400, 'O preço do livro não pode ser negativo.');
@@ -74,6 +76,16 @@ class BookshopService extends cds.ApplicationService {
             return updatedBook;
 
         });
+
+        this.on("READ", 'BusinessPartner', async (req) => {
+           const data = await bupa.run(req.query)
+
+           const getFirstBP = await bupa.run(SELECT.one.from("A_BusinessPartner"))
+
+
+           return getFirstBP
+        });
+
 
         super.init()
     }
