@@ -75,6 +75,8 @@ class BookshopService extends cds.ApplicationService {
 
         });
 
+        this.on('testeJean', asnc (req))
+
         super.init()
     }
 }
